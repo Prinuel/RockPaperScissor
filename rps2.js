@@ -5,6 +5,7 @@ let userPick= document.querySelector('.userPick')
 const textField= document.querySelector('#textfield');
 const submit= document.querySelector('.submit');
 const end= document.querySelector('.end');
+const finalResult= document.querySelector('.final');
 
 const options=  ['rock', 'paper', 'scissors'];
 function random(){
@@ -13,6 +14,8 @@ function random(){
 let botPick;
 let myChoice;
 let resetButton;
+let botScore='';
+let humanScore='';
 
 counter=1;
   function playPlay(){
@@ -51,33 +54,50 @@ counter=1;
     function checkResult(){
         if( myChoice==botPick){
             result.textContent= `oh no it's a tie`;
+            botScore=parseInt(0);
+            humanScore=parseInt(0);
         
         }
         else if( myChoice=='rock' && botPick=='paper'){
             result.textContent='bottalicious sorry human';
+            botScore+=1;
+            humanScore+=0;
         }
             else if ( myChoice=='rock' && botPick=='scissors'){
             result.textContent='you are so smart wish i was human';
+            botScore+=0;
+            humanScore+=1;
             }
             else if( myChoice=='paper' && botPick=='rock'){
             result.textContent='you are so smart wish i was human';
+            botScore+=0;
+            humanScore+=1;
             }
             else if( myChoice=='scissors' && botPick=='rock'){
             result.textContent='bottalicious sorry human';
+            botScore+=1;
+            humanScore+=0;
             }
             else if( myChoice=='paper' && botPick=='scissors'){
-                result.textContent='bottalicious sorry human';
+            result.textContent='bottalicious sorry human';
+            botScore+=1;
+            humanScore+=0;
                 }
             else if ( myChoice=='scissors' && botPick=='paper'){
-                    result.textContent='you are so smart wish i was human';
+            result.textContent='you are so smart wish i was human';
+            botScore+=0;
+            humanScore+=1;
                     }
             else {
                 result.textContent='please check if you have the correct input';
                 result.style.background='red';
+                botScore+=0;
+                humanScore+=0;
                 counter=0; 
             }
             counter++;
             userPick.value='';
+           
     }  
 
     function gameOver(){

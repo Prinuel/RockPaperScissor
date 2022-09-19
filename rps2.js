@@ -14,8 +14,8 @@ function random(){
 let botPick;
 let myChoice;
 let resetButton;
-let botScore='';
-let humanScore='';
+let botScore=parseInt(0);
+let humanScore=parseInt(0);
 
 counter=1;
   function playPlay(){
@@ -54,50 +54,49 @@ counter=1;
     function checkResult(){
         if( myChoice==botPick){
             result.textContent= `oh no it's a tie`;
-            botScore=parseInt(0);
-            humanScore=parseInt(0);
+            botScore+=parseInt(0);
+            humanScore+=parseInt(0);
         
         }
         else if( myChoice=='rock' && botPick=='paper'){
             result.textContent='bottalicious sorry human';
-            botScore+=1;
-            humanScore+=0;
+            botScore+=parseInt(1);
+            humanScore+=parseInt(0);
         }
             else if ( myChoice=='rock' && botPick=='scissors'){
             result.textContent='you are so smart wish i was human';
-            botScore+=0;
-            humanScore+=1;
+            botScore+=parseInt(0);
+            humanScore+=parseInt(1);
             }
             else if( myChoice=='paper' && botPick=='rock'){
             result.textContent='you are so smart wish i was human';
-            botScore+=0;
-            humanScore+=1;
+            botScore+=parseInt(0);
+            humanScore+=parseInt(1);
             }
             else if( myChoice=='scissors' && botPick=='rock'){
             result.textContent='bottalicious sorry human';
-            botScore+=1;
-            humanScore+=0;
+            botScore+=parseInt(1);
+            humanScore+=parseInt(0);
             }
             else if( myChoice=='paper' && botPick=='scissors'){
             result.textContent='bottalicious sorry human';
-            botScore+=1;
-            humanScore+=0;
+            botScore+=parseInt(1);
+            humanScore+=parseInt(0);
                 }
             else if ( myChoice=='scissors' && botPick=='paper'){
             result.textContent='you are so smart wish i was human';
-            botScore+=0;
-            humanScore+=1;
+            botScore+=parseInt(0);
+            humanScore+=parseInt(1);
                     }
             else {
                 result.textContent='please check if you have the correct input';
                 result.style.background='red';
-                botScore+=0;
-                humanScore+=0;
+                botScore+=parseInt(0);
+                humanScore+=parseInt(0);
                 counter=0; 
             }
             counter++;
-            userPick.value='';
-           
+            userPick.value='';       
     }  
 
     function gameOver(){
@@ -109,6 +108,20 @@ counter=1;
                 resetButton.textContent='Play Again';
                 document.body.appendChild(resetButton);
                 resetButton.addEventListener('click', resetGame);
+                if(botScore>humanScore){
+                    finalResult.textContent='bot wins overall' + ' ' + botScore + ' ' + 'out of 4 rounds';
+                 }
+                 else if (botScore<humanScore){
+                     finalResult.textContent='human wins overall' + ' ' + humanScore + ' ' + 'out of 4 rounds';
+                 }
+                 else{
+                     finalResult.textContent='it is a tie damn!!!'
+                 }
+                 finalResult.style.background='pink';
+                 // botScore +=botScore;
+                 console.log(botScore);
+                 // humanScore +=humanScore;
+                 console.log(humanScore);
             }
 
     function resetGame(){

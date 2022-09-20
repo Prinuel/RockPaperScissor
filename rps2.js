@@ -133,6 +133,7 @@ counter=1;
         yourPick.textContent='';
         myPick.textContent='';
         result.textContent='';
+        finalResult.textContent='';
         resetButton.parentNode.removeChild(resetButton);
         
         
